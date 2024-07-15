@@ -7,7 +7,7 @@ export interface Plugin {
     name: string;
     shouldNavigate?: (context: Context) => {
         redirect: string;
-        condition: () => boolean | (() => Promise<Boolean>);
+        condition: (() => boolean | Promise<boolean>) | (() => (() => Promise<Boolean>));
     };
     beforeNavigation?: (context: Context) => void;
     afterNavigation?: (context: Context) => void;
